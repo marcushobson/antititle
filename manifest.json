@@ -6,15 +6,15 @@
 	"options_page": "options.html",
 	"browser_action":
 	{
-		"default_icon": "antititle-128.png",
+		"default_icon": "assets/icons/antititle-128.png",
 		"default_popup": "popup.html"
 	},
 	"icons":
 	{
-		"16": "antititle-16.png",
-		"32": "antititle-32.png",
-		"48": "antititle-48.png",
-		"128": "antititle-128.png"
+		"16": "assets/icons/antititle-16.png",
+		"32": "assets/icons/antititle-32.png",
+		"48": "assets/icons/antititle-48.png",
+		"128": "assets/icons/antititle-128.png"
 	},
 	"permissions":
 	[
