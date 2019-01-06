@@ -1,0 +1,37 @@
+{
+	"name": "Antititle",
+	"version": "0.6.0",
+	"manifest_version": 2,
+	"description": "Removes annoying title tags when mousing over any part of a webpage!",
+	"options_page": "options.html",
+	"browser_action":
+	{
+		"default_icon": "antititle-128.png",
+		"default_popup": "popup.html"
+	},
+	"icons":
+	{
+		"16": "antititle-16.png",
+		"32": "antititle-32.png",
+		"48": "antititle-48.png",
+		"128": "antititle-128.png"
+	},
+	"permissions":
+	[
+		"storage",
+		"tabs",
+		"tabCapture"
+  ],
+  "background":
+  {
+    "scripts": ["jquery-2.1.4.min.js", "background.js"]
+  },
+	"content_scripts":
+	[
+		{
+			"matches": ["*://*/*"],
+			"js": ["execute.js"]
+		}
+	],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
