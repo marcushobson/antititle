@@ -1,6 +1,8 @@
 chrome.extension.sendMessage({}, function(response)
 {
-	removeTitles(document.location.href);
+	chrome.storage.sync.get('onlyRepeatedTitles', function(items) {
+		items.onlyRepeatedTitles ? removeTitlesWithRespectToContent(document.location.href) : removeTitles(document.location.href);
+	})
 });
 
 function removeTitles(currentURL) {
@@ -8,7 +10,17 @@ function removeTitles(currentURL) {
     element.removeAttribute("title");
   });
 
-  console.log("Title tags removed by antititle.");
+  console.log("Title attributes removed by antititle.");
+}
+
+function removeTitlesWithRespectToContent(currentURL) {
+  document.querySelectorAll("*").forEach(element => {
+		if (element.attributes.title && (element.textContent === element.attributes.title.value)) {
+			element.removeAttribute("title");
+		}
+  });
+
+  console.log("Title attributes removed by antititle.");
 }
 
 const loadExcludedSites = () => {
